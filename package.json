@@ -1,0 +1,20 @@
+{
+  "name": "pre-entrega",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress open --e2e -b electron",
+      "prod": "npx cypress open --e2e -b electron --config baseUrl=https://pushing-front.vercel.app",
+      "testing": "npx cypress open --e2e -b electron --config baseUrl=https://pushing-it.vercel.app",
+      "spec": "npx cypress run --spec 'cypress/e2e/primerTest.cy.js'"
+    }
+  ,
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^10.3.0",
+    "cypress-xpath": "^2.0.1"
+  }
+}
