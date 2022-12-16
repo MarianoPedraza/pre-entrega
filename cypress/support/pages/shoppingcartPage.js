@@ -1,10 +1,23 @@
-export class #goShoppingCart {
+export class ShoppingcartPage {
     constructor() {
-        this.shoppingCart = '#registertoggle'
-    }
+        this.ShowTotalPrice = 'Show total price'
+        this.price = '#productPrice'
+        this.nombre = '#productName'
+    };
 
-    dobleClickRegister() {
-        cy.get(this.register).dblclick();
-    }
+    clickShowTotalPrice() {
+        cy.contains(this.ShowTotalPrice).click()
 
-}
+    };
+    VerificoProductos(name) {
+        return cy.get(`[name='${name}']`)
+
+    }
+    VerificoPrecios(name) {
+        return cy.get(`[name='${name}']`).siblings('#productPrice')        
+
+    }
+    ValorSumaProductos() {
+        return cy.get(`[id='price']`)
+    }
+};

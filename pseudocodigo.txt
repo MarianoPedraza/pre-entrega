@@ -1,66 +1,47 @@
+/// <reference types="cypress" />
+import { RegisterPage } from '../support/pages/registerPage'
+import { LoginPage } from '../support/pages/loginPage'
+import { HomePage } from '../support/pages/homePage'
+import { ProductsPage } from '../support/pages/productsPage'
+import { ShoppingcartPage} from '../support/pages/shoppingcartPage'
+
 describe('pre entrega', () => {
- 
-        let fixture;
-        let tareas;
 
-        before('Before', () => {
-    
-            cy.fixture("fixture").then(data => {
-                fixture = data
-            });
-            cy.fixture("tareas").then(data => {
-                tareas=data
-        
-            })
-          
-        });
-    
-        beforeEach("BeforeEach", () => {
-          cy.visit('');
-          cy.get("#registertoggle").dblclick()
-          cy.get('#user').type(fixture.username)
-          cy.get('#pass').type(fixture.contraseña)
-          cy.get('#submitForm').click()
-          cy.get('#todolistlink').click()
-        })
+  let login;
+  let products;
 
-          it('deberia ', () => {
-            cy.get("[id^='sen']").type(tareas.tarea1).type('{enter}')
-            cy.get('#sendTask').click();
-            cy.get("[id^='sen']").type(tareas.tarea2).type('{enter}')
-            cy.get('#sendTask').click();
-            cy.get("[id^='sen']").type(tareas.tarea3).type('{enter}')
-            cy.get('#sendTask').click();
-            cy.get("[id^='sen']").type(tareas.tarea4).type('{enter}')
-            cy.get('#sendTask').click();
-            cy.get("[id^='sen']").type(tareas.tarea5);
-            cy.get('#sendTask').click();
+  const registerPage = new RegisterPage();
+  const loginPage = new LoginPage();
+  const homePage = new HomePage();
+  const productsPage = new productsPage();
+  const shoppingcartPage = new shoppingcartPage();
+
+
+  before('Before', () => {
+
+    cy.fixture("login").then(data => {
+      login = data
+    });
+    cy.fixture("product").then(data => {
+      products = data
+    
+  it('deberia ', () => {
+        cy.visit ('')
+        registerPage.dobleClickRegister()
+        loginPage.escribirUsuario(login.usuario)
+        loginPage.escribirContraseña(login.contraseña)
+        loginPage.clickLoginButton()
+        homePage.clickonlineShop()
+        productsPage.clickAddtocart(product.producto1.name)
+        productsPage.clickAddtocart(product.producto2.name)
+        productsPage.clickGoToShoppingCart()
+        shoppingcartPage.clickShowTotalPrice()
+        shoppingcartPage.VerificoProductos()
+        shoppingcartPage.VerificoPrecios(product.producto1.precio+product)
           
         })
       
-            it('verificar botones',  () => {
-            cy.get('button').should('exist','All');
-            cy.get('button').should('exist','Completed');
-            cy.get('button').should('exist','Active');
-            cy.get('button').should('exist','All');
 
-
-    });
-    
-    it('deberia ingresar 2 tareas, completarlas, eliminar la segunda completada', () => {
-        cy.get("[id^='sen']").type(tareasData.tarea6).type('{enter}');
-        cy.get('#sendTask').click();
-        cy.get("[id^='sen']").type(tareasData.tarea7).type('{enter}');
-        cy.contains('Sexta').click()
-        cy.contains('Septima').click()
-        cy.contains('Septima').siblings('button').click();
-        
-});
-it(' deberia agregar 2 tareas y eliminar la primera', () => {
-    cy.get("[id^='sen']").type(tareasData.tarea8).type('{enter}');
-    cy.get('#sendTask').click();
-    cy.get("[id^='sen']").type(tareasData.tarea9).type('{enter}');
-    cy.contains('Octava').siblings('button').click();
 
 });
 })
