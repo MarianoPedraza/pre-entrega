@@ -11,7 +11,7 @@ export class ProductsPage {
         cy.get(this.closeModalButton).click();
     };
 
-    gotoShoppingCartButton() {
+    goShoppingCartButton() {
         cy.get(this.shoppingCartButton).click();
     }
 

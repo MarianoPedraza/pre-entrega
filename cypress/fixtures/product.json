@@ -1,10 +1,15 @@
 {
     "producto1": {
-            "name": "White Pants",
-            "price": 20
-        },
-        "producto2": {
-            "name": "Black T-Shirt",
-            "price": 15
-        }
+        "name": "White Pants",
+        "price": 20
+    },
+    "producto2": {
+        "name": "Black T-Shirt",
+        "price": 15
+    },
+    "checkout": {
+        "nombre": "mariano",
+        "apellido": "pedraza",
+        "numeroTarjeta": "1234123412341234"
     }
+}

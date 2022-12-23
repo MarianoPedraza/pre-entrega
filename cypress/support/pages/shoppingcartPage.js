@@ -3,6 +3,7 @@ export class ShoppingcartPage {
         this.ShowTotalPrice = 'Show total price'
         this.price = '#productPrice'
         this.nombre = '#productName'
+        this.checkoutButton = 'Go to Checkout'
     };
 
     clickShowTotalPrice() {
@@ -10,14 +11,18 @@ export class ShoppingcartPage {
 
     };
     VerificoProductos(name) {
-        return cy.get(`[name='${name}']`)
+        return cy.get(`[name='${name}']`);
 
     }
     VerificoPrecios(name) {
-        return cy.get(`[name='${name}']`).siblings('#productPrice')        
+        return cy.get(`[name='${name}']`).siblings('#productPrice');        
 
     }
-    ValorSumaProductos() {
-        return cy.get(`[id='price']`)
+    ValorSumaProductos(suma) {
+        return cy.get(`[id='price'${suma}]`);
     }
+    clickCheckoutButton() {
+        cy.contains(this.checkoutButton).click();
+    }
+
 };
