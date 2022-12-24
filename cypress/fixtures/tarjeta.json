@@ -1,8 +1,8 @@
 {
     "tarjeta": {
             "name": "mariano",
-            "last name": "pedraza",
-            "tarjeta de credito": "1234123412341234"
+            "lastname": "pedraza",
+            "tarjetaDeCredito": "1234123412341234"
         }
     }
         

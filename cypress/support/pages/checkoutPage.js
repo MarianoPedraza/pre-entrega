@@ -6,14 +6,14 @@ export class CheckoutPage {
         this.purchaseButton = 'Purchase'
     }
 
-    escribirNombre(nombre) {
-        cy.get(this.nombreInput).type(nombre);
+    escribirNombre(name) {
+        cy.get(this.nombreInput).type(name);
     };
-    escribirApellido(apellido) {
-        cy.get(this.apellidoInput).type(apellido)
+    escribirApellido(lastname) {
+        cy.get(this.apellidoInput).type(lastname)
     };
-    escribirNumeroTarjeta(tarjeta) {
-        cy.get(this.numeroTarjetaInput).type(tarjeta);
+    escribirNumeroTarjeta(tarjetaDeCredito) {
+        cy.get(this.numeroTarjetaInput).type(tarjetaDeCredito);
     };
     clickPurchaseButton() {
         cy.contains(this.purchaseButton).click();

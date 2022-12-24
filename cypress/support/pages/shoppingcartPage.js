@@ -18,8 +18,8 @@ export class ShoppingcartPage {
         return cy.get(`[name='${name}']`).siblings('#productPrice');        
 
     }
-    ValorSumaProductos(suma) {
-        return cy.get(`[id='price'${suma}]`);
+    ValorSumaProductos() {
+        return cy.contains('35');
     }
     clickCheckoutButton() {
         cy.contains(this.checkoutButton).click();
