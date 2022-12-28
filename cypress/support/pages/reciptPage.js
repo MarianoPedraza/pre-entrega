@@ -2,6 +2,7 @@ export class ReciptPage {
     constructor() {
         this.thankyouButton = 'Thank you';
         this.espera = 'successfully'
+        this.nombre = 'nombre'
         this.productos = 'name'
         this.tarjeta = 'tarjeta'
         this.total = 'total'
@@ -10,15 +11,20 @@ export class ReciptPage {
     clickOnThankYouButton() {
         cy.contains(this.thankyouButton).click();
     };
+
+    verificoNombre() {
+        return cy.get('#name');
+    };
+    
     verificoProductos(name) {
         return cy.get(`[id='${name}']`);
 
     };
     verificoTarjeta() {
-        return cy.contains('1234123412341234');;
+        return cy.get('#creditCard');
     };
-    verificoTotal(suma) {
-        return cy.contains('35');
+    verificoTotal() {
+        return cy.get('#totalPrice');
     };
 
     esperaRecipt() {

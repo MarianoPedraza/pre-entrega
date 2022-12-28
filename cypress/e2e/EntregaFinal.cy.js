@@ -80,11 +80,13 @@ describe('entrega final', () => {
     checkoutPage.escribirApellido(datosTarjeta.tarjeta.lastname);
     checkoutPage.escribirNumeroTarjeta(datosTarjeta.tarjeta.tarjetaDeCredito);
     checkoutPage.clickPurchaseButton();
-    reciptPage.esperaRecipt(datos.checkout.nombre, datos.checkout.apellido);
+    reciptPage.esperaRecipt();
+    reciptPage.verificoNombre(datos.checkout.nombre).contains(datos.checkout.nombre);
+    reciptPage.verificoNombre(datos.checkout.apellido).contains(datos.checkout.apellido);
     reciptPage.verificoProductos(datos.producto1.name).should('have.text', datos.producto1.name);
     reciptPage.verificoProductos(datos.producto2.name).should('have.text', datos.producto2.name);
-    reciptPage.verificoTarjeta(datosTarjeta.tarjetaDeCredito);
-    reciptPage.verificoTotal(suma);
+    reciptPage.verificoTarjeta(datos.checkout.numeroTarjeta).should('have.text',datos.checkout.numeroTarjeta);
+    reciptPage.verificoTotal(suma).contains(suma);
 
     
 
